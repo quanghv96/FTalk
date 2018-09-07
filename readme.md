@@ -1,11 +1,8 @@
-# FTalk
-Internal Project
-
-## About FTalk ##
+## About Blog Q & A ##
 
 ### Purpose
 
-FTalk is my blog for the purpose of synthesizing, archiving, solving problems, knowledge of information technology. My goal for this blog is to help you guys as much as possible.
+Blog Q & A is my project for the purpose of synthesizing, archiving, solving problems, knowledge of information technology. My goal for this blog is to help you guys as much as possible.
 
 ### Technology
 
@@ -21,6 +18,11 @@ FTalk is my blog for the purpose of synthesizing, archiving, solving problems, k
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
+
+### About Me
+
+- trantrongbinh
+	"Learning new languages and technologies is what I am passionate about."
 
 ## Installation
 
