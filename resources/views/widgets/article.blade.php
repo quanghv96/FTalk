@@ -24,9 +24,6 @@
                     <div class="clear"></div>
                     <div class="tab-content">
                         <div class="active tab-pane" id="activity">
-
-                           <textarea id="editor"></textarea>
-
                             <div id="list-article">
                                 @forelse($articles as $article)
                                 <!-- Post -->
