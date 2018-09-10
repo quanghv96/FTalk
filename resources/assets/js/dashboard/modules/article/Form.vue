@@ -1,98 +1,98 @@
 <template>
   <div class="row">
 	<form class="col-sm-12" @submit.prevent="onSubmit">
-	  <div class="col-sm-12">
-		<div class="form-group row">
-		  <label class="col-sm-1 col-form-label">{{ $t('form.category') }}</label>
-		  <div class="col-sm-11">
-			<multiselect v-model="selected" :options="options" label="name" :placeholder="$t('form.select_category')" track-by="name">
-			</multiselect>
-		  </div>
-		</div>
-		<div class="form-group row">
-		  <label for="title" class="col-sm-1 col-form-label">{{ $t('form.title') }}</label>
-		  <div class="col-sm-11">
-			<input type="text" id="title" name="title" v-model="article.title" class="form-control">
-		  </div>
-		</div>
-		<div class="form-group row">
-		  <label for="subtitle" class="col-sm-1 col-form-label">{{ $t('form.subtitle') }}</label>
-		  <div class="col-sm-11">
-			<input type="text" id="subtitle" name="subtitle" v-model="article.subtitle" class="form-control">
-		  </div>
-		</div>
-		<div class="form-group row">
-		  <label for="page_image" class="col-sm-1 col-form-label">{{ $t('form.page_image') }}</label>
-		  <div class="col-sm-7">
-			<input type="text" id="page_image" class="form-control" name="page_image" v-model="article.page_image" placeholder="ex: /uploads/default_avatar.png">
-		  </div>
-		  <div class="col-sm-4">
-			<img v-if="article.page_image != null && article.page_image != ''" :src="article.page_image" alt="Idist" width="35" height="35">
-			<div class="cover-upload pull-right">
-			  <a href="javascript:;" class="btn btn-success file">
-				  <span>{{ $t('form.upload_file') }}</span>
-				  <input type="file" @change="coverUploader">
-			  </a>
+	  	<div class="col-sm-12">
+			<div class="form-group row">
+			  <label class="col-sm-1 col-form-label">{{ $t('form.category') }}</label>
+			  <div class="col-sm-11">
+				<multiselect v-model="selected" :options="options" label="name" :placeholder="$t('form.select_category')" track-by="name">
+				</multiselect>
+			  </div>
 			</div>
-		  </div>
-		</div>
-		<div class="form-group row">
-		  <label for="title" class="col-sm-1 col-form-label">{{ $t('form.content') }}</label>
-		  <div class="col-sm-11">
-			<textarea id="editor"></textarea>
-		  </div>
-		</div>
-		<div class="form-group row">
-		  <label class="col-sm-1 col-form-label">{{ $t('form.tag') }}</label>
-		  <div class="col-sm-11">
-			<multiselect v-model="tags" :options="allTag" :multiple="true" :searchable="true" :hide-selected="true" :close-on-select="false" :clear-on-select="false" :limit="5" :placeholder="$t('form.select_tag')" label="tag" track-by="tag">
-			</multiselect>
-		  </div>
-		</div>
-		<div class="form-group row">
-		  <label for="meta_description" class="col-sm-1 col-form-label">{{ $t('form.meta_description') }}</label>
-		  <div class="col-sm-11">
-			<textarea id="meta_description" name="meta_description" v-model="article.meta_description" class="form-control"></textarea>
-		  </div>
-		</div>
-		<div class="form-group row">
-		  <label class="col-sm-1 col-form-label">{{ $t('form.datetime') }}</label>
-		  <div class="col-sm-11">
-			<date-picker :date="startTime" :option="option"></date-picker>
-		  </div>
-		</div>
-		<div class="form-group row">
-		  <div class="col-sm-2 col-form-label">
-			{{ $t('form.is_draft') }}
-		  </div>
-		  <div class="col-sm-2">
-			<div class="togglebutton" style="margin-top: 6px">
-			  <label>
-				<input type="checkbox" name="is_draft" v-model="article.is_draft">
-				<span class="toggle"></span>
-			  </label>
+			<div class="form-group row">
+			  <label for="title" class="col-sm-1 col-form-label">{{ $t('form.title') }}</label>
+			  <div class="col-sm-11">
+				<input type="text" id="title" name="title" v-model="article.title" class="form-control">
+			  </div>
 			</div>
-		  </div>
-		  <div class="col-sm-2 col-form-label">
-			{{ $t('form.is_original') }}
-		  </div>
-		  <div class="col-sm-2">
-			<div class="togglebutton" style="margin-top: 6px">
-			  <label>
-				<input type="checkbox" name="is_original" v-model="article.is_original">
-				<span class="toggle"></span>
-			  </label>
+			<div class="form-group row">
+			  <label for="subtitle" class="col-sm-1 col-form-label">{{ $t('form.subtitle') }}</label>
+			  <div class="col-sm-11">
+				<input type="text" id="subtitle" name="subtitle" v-model="article.subtitle" class="form-control">
+			  </div>
 			</div>
-		  </div>
-		</div>
-	  </div>
-	  <div class="col-sm-12">
-		<div class="form-group row">
-		  <div class="offset-sm-2 col-sm-10">
-			<button type="submit" class="btn btn-info">{{ article.id ? $t('form.edit') : $t('form.create') }}</button>
-		  </div>
-		</div>
-	  </div>
+			<div class="form-group row">
+			  	<label for="page_image" class="col-sm-1 col-form-label">{{ $t('form.page_image') }}</label>
+			  	<div class="col-sm-7">
+					<input type="text" id="page_image" class="form-control" name="page_image" v-model="article.page_image" placeholder="ex: /uploads/default_avatar.png">
+			  	</div>
+			  	<div class="col-sm-4">
+					<img v-if="article.page_image != null && article.page_image != ''" :src="article.page_image" alt="Idist" width="35" height="35">
+					<div class="cover-upload pull-right">
+				  		<a href="javascript:;" class="btn btn-success file">
+					  		<span>{{ $t('form.upload_file') }}</span>
+					  		<input type="file" @change="coverUploader">
+				  		</a>
+					</div>
+			  	</div>
+			</div>
+			<div class="form-group row">
+			  <label for="title" class="col-sm-1 col-form-label">{{ $t('form.content') }}</label>
+			  <div class="col-sm-11">
+				<textarea id="editor"></textarea>
+			  </div>
+			</div>
+			<div class="form-group row">
+			  <label class="col-sm-1 col-form-label">{{ $t('form.tag') }}</label>
+			  <div class="col-sm-11">
+				<multiselect v-model="tags" :options="allTag" :multiple="true" :searchable="true" :hide-selected="true" :close-on-select="false" :clear-on-select="false" :limit="5" :placeholder="$t('form.select_tag')" label="tag" track-by="tag">
+				</multiselect>
+			  </div>
+			</div>
+			<div class="form-group row">
+			  <label for="meta_description" class="col-sm-1 col-form-label">{{ $t('form.meta_description') }}</label>
+			  <div class="col-sm-11">
+				<textarea id="meta_description" name="meta_description" v-model="article.meta_description" class="form-control"></textarea>
+			  </div>
+			</div>
+			<div class="form-group row">
+			  <label class="col-sm-1 col-form-label">{{ $t('form.datetime') }}</label>
+			  <div class="col-sm-11">
+				<date-picker :date="startTime" :option="option"></date-picker>
+			  </div>
+			</div>
+			<div class="form-group row">
+			  <div class="col-sm-2 col-form-label">
+				{{ $t('form.is_draft') }}
+			  </div>
+			  <div class="col-sm-2">
+				<div class="togglebutton" style="margin-top: 6px">
+				  <label>
+					<input type="checkbox" name="is_draft" v-model="article.is_draft">
+					<span class="toggle"></span>
+				  </label>
+				</div>
+			  </div>
+			  <div class="col-sm-2 col-form-label">
+				{{ $t('form.is_original') }}
+			  </div>
+			  <div class="col-sm-2">
+				<div class="togglebutton" style="margin-top: 6px">
+				  <label>
+					<input type="checkbox" name="is_original" v-model="article.is_original">
+					<span class="toggle"></span>
+				  </label>
+				</div>
+			  </div>
+			</div>
+	  	</div>
+	  	<div class="col-sm-12">
+			<div class="form-group row">
+			  <div class="offset-sm-2 col-sm-10">
+				<button type="submit" class="btn btn-info">{{ article.id ? $t('form.edit') : $t('form.create') }}</button>
+			  </div>
+			</div>
+	  	</div>
 	</form>
   </div>
 </template>
@@ -233,8 +233,7 @@ export default {
 		  targetElement: document.querySelector('.CodeMirror')
 		},
 		request: {
-		  endpoint: '/api/file/\n' +
-		  '评论',
+		  endpoint: '/api/file/upload',
 		  inputName: 'image',
 		  customHeaders: {
 			'X-CSRF-TOKEN': window.Laravel.csrfToken,

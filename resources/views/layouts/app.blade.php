@@ -16,8 +16,6 @@
 
         <link rel="stylesheet" href="{{ mix('css/home.css') }}">
         <link rel="stylesheet" href="{{ mix('css/themes/' . config('blog.color_theme') . '.css') }}">
-        <link  rel="stylesheet"  href= "https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
-        <script  src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js" > </script>
         <!-- Scripts -->
         <script>
             window.Language = '{{ config('app.locale') }}';
@@ -48,10 +46,6 @@
         <script src="{{ mix('js/home.js') }}"></script>
         
         @yield('scripts')
-
-        <script>
-            var simplemde =  new  SimpleMDE ({element :  document.getElementById( "editor" )});
-        </script>
 
         <script>
             $(function () {
