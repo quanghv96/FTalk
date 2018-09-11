@@ -31,10 +31,12 @@ $factory->defineAs(App\User::class, 'admin', function () use ($factory) {
 });
 
 $factory->define(App\Category::class, function (Faker\Generator $faker) {
+    $name = $faker->unique()->name;
+    $slug = str_slug($name);
     return [
-        'name'      => $faker->name,
+        'name'      => $name,
         'parent_id' => 0,
-        'path'      => $faker->url
+        'slug'      => $slug
     ];
 });
 

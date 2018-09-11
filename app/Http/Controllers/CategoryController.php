@@ -35,8 +35,9 @@ class CategoryController extends Controller
      */
     public function show($category)
     {
-        if (!$category = $this->category->getByName($category)) abort(404);
-
+        $category = $this->category->getByName($category);
+        if($category == null)
+            abort(404);
         $articles = $category->articles;
 
         return view('category.show', compact('category', 'articles'));

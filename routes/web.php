@@ -52,14 +52,14 @@ Route::get('link', 'LinkController@index');
 
 // Category
 Route::group(['prefix' => 'category'], function () {
-    Route::get('{category}', 'CategoryController@show');
+    Route::get('{category}', 'CategoryController@show')->name('category.show');
     Route::get('/', 'CategoryController@index');
 });
 
 // Tag
 Route::group(['prefix' => 'tag'], function () {
     Route::get('/', 'TagController@index');
-    Route::get('{tag}', 'TagController@show');
+    Route::get('{tag}', 'TagController@show')->name('tag.show');
 });
 
 /* Dashboard Index */

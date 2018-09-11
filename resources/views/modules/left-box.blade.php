@@ -39,7 +39,12 @@
             <h3 class="h6">Categories</h3>
         </header>
         @foreach ($categories as $category)
-            <div class="item d-flex justify-content-between"><a href="{{ $category->path }}">{{ $category->name }}</a><span>12</span></div>
+            <div class="item d-flex justify-content-between">
+                <a href="{{ route('category.show', ['category' => $category->slug]) }}">
+                    {{ $category->name }}
+                </a>
+                <span>{{ $category->articles->count() }}</span>
+            </div>
         @endforeach
     </div>
     <!-- Widget [Tags Cloud Widget]-->
@@ -49,7 +54,11 @@
         </header>
         <ul class="list-inline">
             @foreach ($tags as $tag)
-                <li class="list-inline-item"><a href="#" class="tag">{{ $tag->tag }}</a></li>
+                <li class="list-inline-item">
+                    <a href="{{ route('tag.show', ['tag' => $tag->tag]) }}" class="tag">
+                        {{ $tag->tag }}
+                    </a>
+                </li>
             @endforeach
         </ul>
     </div>

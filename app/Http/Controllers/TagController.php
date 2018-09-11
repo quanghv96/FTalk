@@ -36,9 +36,8 @@ class TagController extends Controller
     public function show($tag)
     {
         $tag = $this->tag->getByName($tag);
-
-        if (!$tag) abort(404);
-
+        if ($tag == null) 
+            abort(404);
         $articles = $tag->articles;
         $discussions = $tag->discussions;
 
