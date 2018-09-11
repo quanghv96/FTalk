@@ -43,6 +43,6 @@ class CategoryRepository
      */
     public function getByName($name)
     {
-        return $this->model->where('name', $name)->first();
+        return $this->model->where('slug', $name)->first();
     }
 }
