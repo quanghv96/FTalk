@@ -113,3 +113,14 @@ $factory->define(App\Visitor::class, function (Faker\Generator $faker) {
         'clicks'     => $num
     ];
 });
+
+$factory->define(App\Team::class, function (Faker\Generator $faker) {
+    $name = $faker->unique()->name;
+    return [
+        'name' => $name,
+        'slug' => str_slug($name),
+        'avatar' => $faker->imageUrl(),
+        'description' => $faker->sentence,
+        'rank' => $faker->numberBetween(50, 300)
+    ];
+});

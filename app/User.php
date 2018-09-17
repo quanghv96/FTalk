@@ -95,4 +95,11 @@ class User extends Authenticatable
             return $this->email;
         }
     }
+
+    public function teams()
+    {
+        return $this->belongsToMany(Team::class)
+            ->as('join')
+            ->withTimestamps();
+    }
 }
